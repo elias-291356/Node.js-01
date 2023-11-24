@@ -9,7 +9,7 @@ const invokeAction = async ({ action, id, ...data }) => {
   switch (action) {
     case 'list':
       const allContacts = await contactService.getAllContacts();
-      return console.log(allContacts);
+      return console.table(allContacts);
     case 'getById':
       const oneContact = await contactService.getContactById(id);
       return console.log(oneContact);
@@ -21,7 +21,7 @@ const invokeAction = async ({ action, id, ...data }) => {
       return console.log(updateContact)
     case 'removeById':
       const removeById = await contactService.removeById(id);
-      console.log(removeById);
+      return console.log(removeById);
     default:
       console.log("Unknown action");
   }
